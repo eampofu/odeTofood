@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using odeTofood.Core;
 using odeTofood.Data;
 
 namespace odeTofood.Pages.Restaurants
@@ -20,11 +21,12 @@ namespace odeTofood.Pages.Restaurants
             this.restaurantData = restaurantData;
         }
 
-       
+        public IEnumerable<Restaurant> Restaurants { get; set; }
 
         public void OnGet()
         {
-           // message = config["Message"];
+            // message = config["Message"];
+            Restaurants = restaurantData.GetAll();
         }
     }
 }
