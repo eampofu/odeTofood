@@ -36,7 +36,7 @@ namespace odeTofood.Data
 
         public IEnumerable<Restaurant> GetRestaurantByName(string name=null)
         {
-            return from r in restaurants where string.IsNullOrEmpty(name)||r.Name==name
+            return from r in restaurants where string.IsNullOrEmpty(name)||r.Name.StartsWith(name)
                    orderby r.Name
                    select r;
         }
