@@ -23,13 +23,14 @@ namespace odeTofood.Pages.Restaurants
         }
 
         public IEnumerable<Restaurant> Restaurants { get; set; }
-
-        public void OnGet(string searchTerm)
+        [BindProperty(SupportsGet =true)]
+        public string SearchTerm { get; set; }
+        public void OnGet()
         {
 
             // message = config["Message"];
            // Restaurants = restaurantData.GetAll();
-            Restaurants = restaurantData.GetRestaurantByName(searchTerm);
+            Restaurants = restaurantData.GetRestaurantByName(SearchTerm);
             Debug.WriteLine(Restaurants);
         }
     }
