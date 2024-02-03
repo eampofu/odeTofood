@@ -15,7 +15,7 @@ namespace odeTofood.Pages.Restaurants
     {
         private readonly IConfiguration config;
         private readonly IRestaurantData restaurantData;
-
+        public string Message { get; set; }
         public ListModel(IConfiguration config,IRestaurantData restaurantData)
         {
             this.config = config;
@@ -28,7 +28,7 @@ namespace odeTofood.Pages.Restaurants
         public void OnGet()
         {
 
-            // message = config["Message"];
+             Message = config["Message"];
            // Restaurants = restaurantData.GetAll();
             Restaurants = restaurantData.GetRestaurantByName(SearchTerm);
             Debug.WriteLine(Restaurants);
