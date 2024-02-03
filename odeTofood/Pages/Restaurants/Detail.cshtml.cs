@@ -18,9 +18,14 @@ namespace odeTofood.Pages.Restaurants
         {
             this.restaurantdata = restaurantdata;
         }
-        public void OnGet(int restuarantId)
+        public IActionResult OnGet(int restuarantId)
         {
             Restaurant = restaurantdata.GetById(restuarantId);
+            if (Restaurant == null)
+            {
+                return RedirectToPage("./NotFound");
+            }
+            return Page();
         }
     }
 }
