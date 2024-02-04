@@ -14,36 +14,46 @@
     </div>
 
 </form>
-<table class="table text-white-50">
-    @foreach (var restaurant in Model.Restaurants)
-    {
-        <tr>
-            <td>@restaurant.Name</td>
-            <td>@restaurant.Location</td>
-            <td>@restaurant.Cuisine</td>
-            <td>
-                <a class="btn btn-lg"
-                   asp-page="./detail"
-                   asp-route-restaurantId="@restaurant.Id">
-                    <i class="fa-solid fa-magnifying-glass-plus btn-outline-primary"></i>
-                </a>
-                <a class="btn btn-lg"
-                   asp-page="./edit"
-                   asp-route-restaurantId="@restaurant.Id">
-                    <i class="fa-solid fa-edit btn-outline-warning"></i>
-                </a>
-                <a class="btn btn-lg"
-                   asp-page="./delete"
-                   asp-route-restaurantId="@restaurant.Id">
-                    <i class="fa-solid fa-trash-alt btn-outline-danger"></i>
-                </a>
-            </td>
-            
-        </tr>
-    }
-</table>
+<!-- #region Table -->
+@*
+    <table class="table text-white-50">
+        @foreach (var restaurant in Model.Restaurants)
+        {
+            <tr>
+                <td>@restaurant.Name</td>
+                <td>@restaurant.Location</td>
+                <td>@restaurant.Cuisine</td>
+                <td>
+                    <a class="btn btn-lg"
+                       asp-page="./detail"
+                       asp-route-restaurantId="@restaurant.Id">
+                        <i class="fa-solid fa-magnifying-glass-plus btn-outline-primary"></i>
+                    </a>
+                    <a class="btn btn-lg"
+                       asp-page="./edit"
+                       asp-route-restaurantId="@restaurant.Id">
+                        <i class="fa-solid fa-edit btn-outline-warning"></i>
+                    </a>
+                    <a class="btn btn-lg"
+                       asp-page="./delete"
+                       asp-route-restaurantId="@restaurant.Id">
+                        <i class="fa-solid fa-trash-alt btn-outline-danger"></i>
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </table>*@
+
+<!-- #endregion -->
+@foreach (var restaurant in Model.Restaurants)
+{
+    <partial name="_Summary" model="restaurant" />
+}
+
+
 <a asp-page="./Edit" class="btn btn-primary">Add new</a>
 
 @section footer{
-<div>@Model.Message</div>
+    <div>@Model.Message</div>
 }
