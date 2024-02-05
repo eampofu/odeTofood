@@ -1,0 +1,13 @@
+﻿@page
+@model odeTofood.Pages.Restaurants.IndexModel
+@{
+}
+<h2>Clients</h2>
+@section Scripts{
+<script>
+    $(function () {
+        $.ajax("/api/restaurants/", { method: "get" }).then(function (response) {
+            console.dir(response);
+        });
+    });
+    </script>}
