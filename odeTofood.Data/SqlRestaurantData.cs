@@ -38,12 +38,19 @@ namespace odeTofood.Data
 
         public IEnumerable<Restaurant> GetAll()
         {
-            throw new System.NotImplementedException();
+            return from r in db.Restaurants
+                   orderby r.Name
+                   select r;
         }
 
         public Restaurant GetById(int id)
         {
             return db.Restaurants.Find(id);
+        }
+
+        public int GetCountOfRestaurants()
+        {
+            return db.Restaurants.Count();
         }
 
         public IEnumerable<Restaurant> GetRestaurantByName(string name)
