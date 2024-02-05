@@ -34,6 +34,7 @@
             </div>
         </nav>
     </header>
+    <partial name="_CookieConsentPartial" />
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -41,12 +42,18 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        @RenderSection("footer",required:false)
+        @RenderSection("footer", required: false)
+        
         <div class="container">
             <vc:restaurant-count></vc:restaurant-count>
-            &copy;
-            <script>document.write(new Date().getFullYear())</script>  - odeTofood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+
+            <p>
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>  - odeTofood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </p>
+            <img src="~/OdeToFood.png" />
         </div>
+     
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
